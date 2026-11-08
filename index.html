@@ -1,0 +1,488 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>신고컷 · 안전신문고용 블랙박스 영상 편집</title>
+<meta name="description" content="잇고, 자르고, 바로 신고. 정면·후면 블랙박스 영상을 합치고 130MB에 맞춰 저장하는 무료 편집 프로그램. 안드로이드 앱, 윈도우 설치판·포터블판.">
+<meta property="og:title" content="신고컷 · 안전신문고용 블랙박스 영상 편집">
+<meta property="og:description" content="잇고, 자르고, 바로 신고. 안드로이드·윈도우 무료 다운로드.">
+<meta property="og:image" content="img/intro.jpg?v=a1.7.0-w1.0.2-r">
+<meta name="theme-color" content="#059669">
+<link rel="icon" type="image/svg+xml" href="img/logo.svg?v=a1.7.0-w1.0.2-r">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+
+:root{
+  --g:#059669; --gd:#047857; --gdd:#065F46; --gl:#D1FAE5; --gll:#ECFDF5;
+  --ink:#111827; --sub:#4B5563; --mute:#6B7280; --line:#E5E7EB; --bg:#F6F8F7; --card:#fff;
+  --warn:#B45309; --warnbg:#FEF3C7;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Noto Sans KR',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;word-break:keep-all}
+a{color:inherit}
+img{max-width:100%;display:block}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:10;background:rgba(5,150,105,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:#fff}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:900;font-size:20px;text-decoration:none}
+.logo svg{width:32px;height:32px}
+.nav ul{display:flex;gap:22px;list-style:none;font-size:15px;font-weight:500}
+.nav ul a{text-decoration:none;opacity:.9}
+.nav ul a:hover{opacity:1}
+.nav .mini{background:#fff;color:var(--gd);font-weight:700;border-radius:999px;padding:7px 16px;text-decoration:none;font-size:14px}
+
+/* hero */
+.hero{background:linear-gradient(165deg,#10B981 0%,#059669 45%,#047857 100%);color:#fff;padding:72px 0 0;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:end}
+.hero h1{font-size:56px;font-weight:900;letter-spacing:-1.5px;line-height:1.15}
+.hero .lead{font-size:21px;margin-top:14px;opacity:.95}
+.hero .desc{font-size:16px;margin-top:18px;opacity:.88;max-width:470px}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.btn{display:inline-flex;align-items:center;gap:10px;border-radius:999px;padding:16px 28px;font-weight:700;font-size:17px;text-decoration:none;transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn-w{background:#fff;color:var(--gd);box-shadow:0 12px 30px rgba(2,44,34,.25)}
+.btn-o{border:1.5px solid rgba(255,255,255,.6);color:#fff}
+.btn svg{width:20px;height:20px}
+.meta{margin-top:16px;font-size:13.5px;opacity:.85}
+.hero-shot{display:flex;justify-content:center;gap:18px;padding-bottom:0}
+.phone{width:250px;background:#0F172A;border-radius:38px 38px 0 0;padding:10px 10px 0;box-shadow:0 30px 60px rgba(2,44,34,.35)}
+.phone img{border-radius:29px 29px 0 0;height:440px;width:100%;object-fit:cover;object-position:top}
+.hero-shot{position:relative;align-items:flex-end;justify-content:flex-start}
+.laptop{width:420px;margin-right:0;background:#0F172A;border-radius:18px 18px 0 0;padding:10px 10px 0;box-shadow:0 30px 60px rgba(2,44,34,.35)}
+.laptop img{border-radius:10px 10px 0 0;width:100%;height:260px;object-fit:cover;object-position:top left}
+.hero-shot .phone{position:absolute;right:0;bottom:0;width:180px;border-radius:30px 30px 0 0;padding:8px 8px 0}
+.hero-shot .phone img{height:330px;border-radius:23px 23px 0 0}
+
+/* sections */
+section{padding:84px 0}
+.eyebrow{color:var(--g);font-weight:700;font-size:14px;letter-spacing:.5px}
+h2{font-size:34px;font-weight:900;letter-spacing:-.8px;line-height:1.3;margin-top:6px}
+.sec-lead{color:var(--sub);margin-top:10px;font-size:16.5px;max-width:640px}
+
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px}
+.f{background:var(--card);border-radius:22px;padding:26px;border:1px solid var(--line)}
+.f .ic{width:48px;height:48px;border-radius:14px;background:var(--gl);color:var(--gd);display:grid;place-items:center}
+.f .ic svg{width:24px;height:24px}
+.f h3{font-size:19px;margin-top:16px;letter-spacing:-.3px}
+.f p{color:var(--sub);font-size:15px;margin-top:6px}
+.f.wide{grid-column:span 2;display:grid;grid-template-columns:1fr 150px;gap:20px;align-items:center}
+.f.wide img{border-radius:14px;width:150px}
+.f.full{grid-column:1/-1}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.chip{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:4px 10px;font-size:13px;font-weight:700;color:#374151}
+
+.banner{margin-top:56px;border-radius:26px;overflow:hidden;box-shadow:0 20px 50px rgba(4,120,87,.18)}
+
+/* download */
+.dl{background:linear-gradient(160deg,#059669,#047857);color:#fff;border-radius:30px;padding:48px;display:grid;grid-template-columns:1fr auto;gap:30px;align-items:center}
+.dl h2{color:#fff;margin:0}
+.dl p{opacity:.92;margin-top:8px}
+.spec{display:grid;grid-template-columns:auto 1fr;gap:6px 16px;margin-top:22px;font-size:14.5px}
+.spec dt{opacity:.75}
+.spec dd{font-weight:500}
+.hash{font-family:ui-monospace,Menlo,monospace;font-size:11.5px;word-break:break-all;opacity:.85}
+.dl .btn-w{font-size:19px;padding:20px 34px}
+.free{display:inline-block;background:rgba(255,255,255,.2);border-radius:999px;padding:4px 12px;font-size:13px;font-weight:700;margin-bottom:10px}
+
+/* install steps */
+.steps{counter-reset:s;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:36px}
+.step{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:24px;position:relative}
+.step::before{counter-increment:s;content:counter(s);width:34px;height:34px;border-radius:50%;background:var(--g);color:#fff;font-weight:900;display:grid;place-items:center;font-size:16px}
+.step h3{font-size:17px;margin-top:14px}
+.step p{font-size:14.5px;color:var(--sub);margin-top:6px}
+.step b{color:var(--ink)}
+.note{margin-top:18px;background:var(--gll);border:1px solid var(--gl);border-radius:16px;padding:16px 20px;font-size:14.5px;color:var(--gdd)}
+
+/* tip */
+.tip{display:grid;grid-template-columns:auto 1fr;gap:22px;background:var(--warnbg);border:1px solid #FDE68A;border-radius:24px;padding:30px}
+.tip .ic{width:56px;height:56px;border-radius:16px;background:#FCD34D;display:grid;place-items:center;font-size:28px}
+.tip h3{font-size:21px;letter-spacing:-.3px}
+.tip p{color:#78350F;margin-top:6px;font-size:15.5px}
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
+.cmp{background:#fff;border-radius:14px;padding:14px 16px;font-size:14.5px}
+.cmp strong{display:block;font-size:15px;margin-bottom:2px}
+.cmp.bad strong{color:#B91C1C}
+.cmp.good strong{color:var(--gd)}
+
+/* faq */
+.faq{margin-top:30px;display:grid;gap:10px}
+details{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 22px}
+summary{font-weight:700;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:12px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:'+';color:var(--g);font-size:22px;line-height:1}
+details[open] summary::after{content:'–'}
+details p{color:var(--sub);margin-top:10px;font-size:15px}
+
+/* footer */
+footer{background:#064E3B;color:#D1FAE5;padding:46px 0;font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+.insta{display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--gd);border-radius:999px;padding:10px 18px;font-weight:700;text-decoration:none}
+.insta svg{width:18px;height:18px}
+footer .contact{display:flex;gap:10px;flex-wrap:wrap}
+footer small{display:block;opacity:.7;margin-top:6px;font-size:12.5px}
+
+@media (max-width:900px){
+  .hero-grid{grid-template-columns:1fr}
+  .hero{padding-top:48px}
+  .hero h1{font-size:42px}
+  .features{grid-template-columns:1fr 1fr}
+  .steps{grid-template-columns:1fr 1fr}
+  .dl{grid-template-columns:1fr;padding:34px 26px}
+  .nav ul{display:none}
+}
+@media (max-width:600px){
+  .wrap{padding:0 16px}
+  section{padding:60px 0}
+  .hero h1{font-size:36px}
+  .hero .lead{font-size:18px}
+  h2{font-size:27px}
+  .features,.steps,.compare{grid-template-columns:1fr}
+  .f.wide,.f.full{grid-column:auto;grid-template-columns:1fr}
+  .phone{width:190px;border-radius:30px 30px 0 0;padding:8px 8px 0}
+  .phone img{height:330px;border-radius:23px 23px 0 0}
+  .laptop{width:auto;flex:1;margin-right:90px}
+  .laptop img{height:200px}
+  .hero-shot .phone{width:130px;right:0}
+  .hero-shot .phone img{height:230px}
+  .btn{width:100%;justify-content:center}
+  .tip{grid-template-columns:1fr;padding:24px}
+  .banner{border-radius:16px}
+}
+
+/* platforms */
+.plat{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:36px}
+.pcard{background:var(--card);border:1px solid var(--line);border-radius:24px;overflow:hidden;display:flex;flex-direction:column}
+.pcard .shot{background:linear-gradient(160deg,#10B981,#047857);padding:24px 24px 0;display:flex;justify-content:center;align-items:flex-end;height:300px;overflow:hidden}
+.pcard .shot img{border-radius:14px 14px 0 0;box-shadow:0 14px 30px rgba(2,44,34,.3)}
+.pcard .shot img.m{width:180px;height:276px;object-fit:cover;object-position:center 48%}
+.pcard .shot img.w{width:100%}
+.pcard .body{padding:22px 24px 26px}
+.pcard h3{font-size:20px}
+.pcard p{color:var(--sub);font-size:15px;margin-top:6px}
+.pcard ul{margin:10px 0 0 18px;color:var(--sub);font-size:14.5px}
+.flow{margin-top:40px;background:var(--card);border:1px solid var(--line);border-radius:24px;padding:28px}
+.flow h3{font-size:20px}
+.flow-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
+.fl{background:var(--bg);border-radius:18px;padding:18px}
+.fl .tag{display:inline-block;background:var(--gl);color:var(--gd);font-weight:700;font-size:13px;border-radius:999px;padding:3px 10px}
+.fl h4{font-size:16.5px;margin-top:10px}
+.fl p{color:var(--sub);font-size:14px;margin-top:4px}
+.fl img{margin-top:12px;border-radius:12px;border:1px solid var(--line);width:100%}
+.fl .opts{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.fl .opts span{background:#fff;border:1.5px solid var(--line);border-radius:10px;padding:4px 10px;font-size:13px;font-weight:700;color:#374151}
+.fl .opts span.on{border-color:var(--g);background:var(--gl);color:var(--gd)}
+.dlwrap{background:linear-gradient(160deg,#059669,#047857);color:#fff;border-radius:30px;padding:44px}
+.dlwrap h2{color:#fff;margin:0}
+.dlwrap>p{opacity:.92;margin-top:8px}
+.dlgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
+.dc{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);border-radius:22px;padding:22px;display:flex;flex-direction:column}
+.dc .k{font-size:13px;font-weight:700;opacity:.8}
+.dc h3{font-size:21px;margin-top:4px}
+.dc p{font-size:14px;opacity:.9;margin-top:6px;flex:1}
+.dc dl{display:grid;grid-template-columns:auto 1fr;gap:3px 12px;font-size:13px;margin-top:14px}
+.dc dt{opacity:.72}
+.dc .btn{margin-top:16px;justify-content:center;padding:14px 18px;font-size:16px}
+.tabs{display:flex;gap:8px;margin-top:30px;flex-wrap:wrap}
+.tabs a{text-decoration:none;font-weight:700;font-size:15px;border-radius:999px;padding:9px 18px;border:1.5px solid var(--line);background:#fff;color:var(--sub)}
+.tabs a:hover{border-color:var(--g);color:var(--gd)}
+h3.sub{font-size:22px;margin-top:44px;letter-spacing:-.4px;scroll-margin-top:80px}
+.steps.three{grid-template-columns:repeat(3,1fr)}
+@media (max-width:900px){.plat,.dlgrid,.flow-grid,.steps.three{grid-template-columns:1fr}.dlwrap{padding:30px 22px}}
+
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a class="logo" href="#top">
+      <svg viewBox="0 0 100 100" aria-hidden="true"><rect x="4" y="4" width="92" height="92" rx="26" fill="#fff"/><circle cx="50" cy="52" r="30" fill="none" stroke="#059669" stroke-width="8"/><path d="M43 39v26l22-13z" fill="#059669" stroke="#059669" stroke-width="4" stroke-linejoin="round"/><circle cx="77" cy="22" r="7" fill="#F59E0B"/></svg>
+      신고컷
+    </a>
+    <ul>
+      <li><a href="#features">기능</a></li>
+      <li><a href="#platforms">앱 · PC</a></li>
+      <li><a href="#install">설치 방법</a></li>
+      <li><a href="#faq">자주 묻는 질문</a></li>
+    </ul>
+    <a class="mini" href="#download">무료 다운로드</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div style="padding-bottom:72px">
+      <h1>잇고, 자르고,<br>바로 신고</h1>
+      <p class="lead">안전신문고용 블랙박스 영상 편집 <b>신고컷</b></p>
+      <p class="desc">정면·후면 영상을 한 화면으로 합치고, 필요한 구간만 잘라 안전신문고 첨부 한도 130MB에 맞춰 저장해요. 휴대폰 앱과 윈도우 PC 프로그램 모두 무료예요. 광고도 회원가입도 없어요.</p>
+      <div class="cta">
+        <a class="btn btn-w" href="#download">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 20h16"/></svg>
+          무료 다운로드
+        </a>
+        <a class="btn btn-o" href="#install">설치 방법 보기</a>
+      </div>
+      <p class="meta">안드로이드 1.7.0 · 윈도우 1.0.2 (설치판 · 포터블판)</p>
+    </div>
+    <div class="hero-shot">
+      <div class="laptop"><img src="img/win_editor.jpg?v=a1.7.0-w1.0.2-r" alt="윈도우용 신고컷 편집 화면"></div>
+      <div class="phone"><img src="img/01_home.jpg?v=a1.7.0-w1.0.2-r" alt="안드로이드 신고컷 시작 화면"></div>
+    </div>
+  </div>
+</header>
+
+<main>
+<section id="features">
+  <div class="wrap">
+    <p class="eyebrow">FEATURES</p>
+    <h2>신고에 필요한 편집만, 쉽게</h2>
+    <p class="sec-lead">블랙박스 영상을 안전신문고에 올리기까지 필요한 작업을 한 번에 끝낼 수 있어요. 휴대폰 앱과 PC 프로그램의 기능은 같아요.</p>
+
+    <div class="features">
+      <div class="f wide">
+        <div>
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="8" rx="2"/><rect x="3" y="13" width="18" height="8" rx="2"/></svg></div>
+          <h3>정면·후면을 한 영상으로</h3>
+          <p>한 파일에 함께 녹화된 여러 영상 트랙을 동시에 재생해요. 위아래나 좌우로 붙여 하나의 영상으로 저장하니 상황이 한눈에 보여요. 4채널 블랙박스는 2×2로 모아 볼 수 있어요.</p>
+        </div>
+        <img src="img/merged.jpg?v=a1.7.0-w1.0.2-r" alt="정면 영상이 위, 후면 영상이 아래에 붙은 저장 결과 예시">
+      </div>
+      <div class="f">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4L8.1 15.9M14.5 14.5L20 20M8.1 8.1L12 12"/></svg></div>
+        <h3>타임바로 자르기</h3>
+        <p>타임바 양 끝을 끌어 필요한 구간만 남겨요. 파일 경계를 넘어도 한 번에 잘려요.</p>
+      </div>
+      <div class="f">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h10M4 12h16M4 17h12"/><path d="M18 4l3 3-3 3"/></svg></div>
+        <h3>여러 파일 이어 붙이기</h3>
+        <p>짧게 끊겨 녹화된 파일을 고른 순서대로 하나의 타임바로 이어요. 꾹 눌러 끌면 순서를 바꿀 수 있어요.</p>
+      </div>
+      <div class="f">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 18V6M9 18V10M14 18V13M19 18V4"/></svg></div>
+        <h3>130MB 실시간 용량 표시</h3>
+        <p>편집하는 동안 예상 용량을 안전신문고 첨부 한도와 비교해 보여줘요. 원본·높음·보통·낮음 화질로 용량을 조절할 수 있어요.</p>
+      </div>
+      <div class="f">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H3v6h3l5 4V5z"/><path d="M16 9a4 4 0 010 6M19 6a8 8 0 010 12"/></svg></div>
+        <h3>소리 포함·제거</h3>
+        <p>차 안 대화나 음악이 들어갔다면 저장할 때 소리를 빼고 영상만 남길 수 있어요.</p>
+      </div>
+      <div class="f full">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 9h18M8 5v4M13 5v4"/></svg></div>
+        <h3>대부분의 블랙박스 형식</h3>
+        <p>주요 녹화 형식을 따로 변환할 필요 없이 바로 불러와요.</p>
+        <div class="chips"><span class="chip">MP4</span><span class="chip">AVI</span><span class="chip">MOV</span><span class="chip">TS</span><span class="chip">MKV</span><span class="chip">H264</span><span class="chip">H265</span><span class="chip">3GP</span><span class="chip">M4V</span></div>
+      </div>
+    </div>
+
+    <div class="flow">
+      <h3>화면 배치를 고르면, 저장 방법은 알아서 맞춰져요</h3>
+      <p class="sec-lead" style="font-size:15px;margin-top:4px">채널이 2개면 상하 분할·좌우 분할·한 채널만, 4채널이면 2×2 배열·한 채널만 중에서 골라요.</p>
+      <div class="flow-grid">
+        <div class="fl">
+          <span class="tag">상하 분할 · 좌우 분할</span>
+          <h4>저장 형태 2가지</h4>
+          <p>붙인 그대로 영상 1개로, 또는 채널마다 따로 2개로 저장해요.</p>
+          <img src="img/flow_2ch.jpg?v=a1.7.0-w1.0.2-r" alt="상하 분할을 고르면 저장 형태로 한 영상으로 합치기, 채널별 따로 2개가 나오는 화면">
+        </div>
+        <div class="fl">
+          <span class="tag">4채널 · 2×2 배열</span>
+          <h4>네 화면을 한 번에</h4>
+          <p>네 채널을 바둑판처럼 붙여 영상 1개로, 또는 4개로 따로 저장해요.</p>
+          <img src="img/flow_4ch.jpg?v=a1.7.0-w1.0.2-r" alt="4채널에서 2×2 배열을 고르면 한 영상으로 합치기, 채널별 따로 4개가 나오는 화면">
+        </div>
+        <div class="fl">
+          <span class="tag">한 채널만</span>
+          <h4>필요한 채널 하나만</h4>
+          <p>저장할 채널(정면 또는 후면)만 고르면 돼요.</p>
+          <img src="img/flow_one.jpg?v=a1.7.0-w1.0.2-r" alt="한 채널만을 고르면 저장할 채널로 CH1 정면, CH2 후면이 나오는 화면">
+        </div>
+      </div>
+    </div>
+
+    <img class="banner" src="img/intro.jpg?v=a1.7.0-w1.0.2-r" alt="신고컷 소개 이미지: 모든 채널 한 화면에, 이어 붙여 자르기, 꾹 눌러 순서 바꾸기, 대부분의 블랙박스 지원" loading="lazy">
+  </div>
+</section>
+
+<section id="platforms" style="padding-top:0">
+  <div class="wrap">
+    <p class="eyebrow">ANDROID · WINDOWS</p>
+    <h2>휴대폰에서도, PC에서도</h2>
+    <p class="sec-lead">블랙박스 메모리카드를 PC에 꽂아 바로 편집하거나, 휴대폰으로 옮겨 편집해서 안전신문고 앱에 바로 올릴 수 있어요.</p>
+    <div class="plat">
+      <div class="pcard">
+        <div class="shot"><img class="m" src="img/03_editor.jpg?v=a1.7.0-w1.0.2-r" alt="안드로이드 신고컷 저장 옵션 화면"></div>
+        <div class="body">
+          <h3>안드로이드 앱</h3>
+          <p>편집한 영상을 갤러리 Movies/신고컷에 저장하고, 공유하기로 안전신문고 앱에 바로 첨부해요.</p>
+          <ul><li>Android 10 이상 (64비트 기기)</li><li>새 버전이 나오면 앱에서 알려 드려요</li></ul>
+        </div>
+      </div>
+      <div class="pcard">
+        <div class="shot"><img class="w" src="img/win_home.jpg?v=a1.7.0-w1.0.2-r" alt="윈도우용 신고컷 시작 화면"></div>
+        <div class="body">
+          <h3>윈도우 PC 프로그램</h3>
+          <p>메모리카드의 영상 파일을 창에 끌어다 놓으면 바로 불러와요. 저장 위치도 원하는 폴더로 바꿀 수 있어요.</p>
+          <ul><li>Windows 10(1809 이상) · Windows 11, 64비트</li><li>설치판과 설치 없이 쓰는 포터블판 중에서 골라요</li><li>단축키: Space 재생·정지, ←/→ 5초 이동</li></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="download" style="padding-top:0">
+  <div class="wrap">
+    <div class="dlwrap">
+      <span class="free">무료 · 광고 없음</span>
+      <h2>신고컷 내려받기</h2>
+      <p>쓰시는 기기에 맞는 파일을 골라 주세요. 내려받은 뒤에는 아래 설치 방법을 따라 주세요.</p>
+      <div class="dlgrid">
+        <div class="dc">
+          <span class="k">ANDROID</span>
+          <h3>안드로이드 앱</h3>
+          <p>휴대폰에서 바로 내려받아 설치해요.</p>
+          <dl><dt>버전</dt><dd>1.7.0</dd><dt>크기</dt><dd>약 24MB</dd><dt>SHA-256</dt><dd class="hash">ebc3d04b9131406dc83dc1ea312ea52c039c34f7f7eb586c10cff71a03b30dad</dd></dl>
+          <a class="btn btn-w" href="https://github.com/reldnix1993/singocut/releases/download/android-1.7.0/singocut-1.7.0.apk">APK 다운로드</a>
+        </div>
+        <div class="dc">
+          <span class="k">WINDOWS · 설치판</span>
+          <h3>윈도우 설치판</h3>
+          <p>시작 메뉴와 바탕화면에 바로가기가 생기고, 새 버전이 나오면 프로그램에서 바로 업데이트해요.</p>
+          <dl><dt>버전</dt><dd>1.0.2</dd><dt>크기</dt><dd>약 83MB</dd><dt>SHA-256</dt><dd class="hash">410dfc1c531ac9035d983b4ba56e70b250c4eae1d3f0851eb14f7a42d24757f3</dd></dl>
+          <a class="btn btn-w" href="https://github.com/reldnix1993/singocut/releases/download/windows-1.0.2/singocut-setup-1.0.2.exe">설치판 다운로드</a>
+        </div>
+        <div class="dc">
+          <span class="k">WINDOWS · 포터블</span>
+          <h3>윈도우 포터블판</h3>
+          <p>설치 없이 파일 하나로 바로 실행해요. 관리자 권한이 필요 없고, USB에 넣어 다녀도 돼요.</p>
+          <dl><dt>버전</dt><dd>1.0.2</dd><dt>크기</dt><dd>약 83MB</dd><dt>SHA-256</dt><dd class="hash">d8844316f28a56c7dc9349a0a6e471bea08e3a59ed03680863aac6365e99ee52</dd></dl>
+          <a class="btn btn-w" href="https://github.com/reldnix1993/singocut/releases/download/windows-1.0.2/singocut-portable-1.0.2.exe">포터블 다운로드</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="install">
+  <div class="wrap">
+    <p class="eyebrow">HOW TO INSTALL</p>
+    <h2>설치 방법</h2>
+    <p class="sec-lead">신고컷은 앱 마켓 밖에서 배포하는 프로그램이라, 처음 한 번은 보안 경고를 넘겨야 해요. 기기마다 메뉴 이름이 조금 다를 수 있어요.</p>
+    <div class="tabs"><a href="#inst-android">안드로이드</a><a href="#inst-setup">윈도우 설치판</a><a href="#inst-portable">윈도우 포터블판</a></div>
+
+    <h3 class="sub" id="inst-android">안드로이드</h3>
+    <div class="steps">
+      <div class="step">
+        <h3>APK 내려받기</h3>
+        <p>휴대폰 브라우저(크롬, 삼성 인터넷 등)에서 <b>APK 다운로드</b> 버튼을 눌러요. ‘유해할 수 있는 파일’ 안내가 나오면 <b>그래도 다운로드</b>를 눌러요.</p>
+      </div>
+      <div class="step">
+        <h3>파일 열기</h3>
+        <p>다운로드 완료 알림이나 <b>내 파일 › 다운로드</b> 폴더에서 <b>singocut-1.7.0.apk</b>를 눌러요.</p>
+      </div>
+      <div class="step">
+        <h3>이 출처 허용</h3>
+        <p>‘보안을 위해 이 출처의 앱을 설치할 수 없어요’가 나오면 <b>설정</b>을 눌러 <b>이 출처 허용</b>(또는 ‘알 수 없는 앱 설치’)을 켜고 뒤로 돌아와요.</p>
+      </div>
+      <div class="step">
+        <h3>설치하고 실행</h3>
+        <p><b>설치</b>를 눌러요. Play 프로텍트 경고가 뜨면 <b>세부정보 더보기 › 그래도 설치</b>를 눌러요. 설치가 끝나면 <b>열기</b>로 바로 시작해요.</p>
+      </div>
+    </div>
+    <p class="note" style="background:#FEF3C7;border-color:#FDE68A;color:#78350F;margin-bottom:10px"><b>1.5.x 이하를 쓰고 계셨다면</b> 1.6.0부터 앱 내부 식별자가 바뀌어, 그냥 설치하면 신고컷이 두 개 생겨요. 휴대폰에서 기존 신고컷을 <b>먼저 삭제</b>한 뒤 새로 설치해 주세요. 저장해 둔 영상(갤러리 Movies/신고컷)은 지워지지 않아요.</p>
+    <p class="note">설치가 끝난 뒤에는 보안을 위해 브라우저의 ‘이 출처 허용’을 다시 꺼 두어도 앱은 그대로 쓸 수 있어요. 새 버전이 나오면 앱에서 알려 드리고, 같은 방법으로 덮어 설치하면 돼요.</p>
+
+    <h3 class="sub" id="inst-setup">윈도우 설치판</h3>
+    <div class="steps three">
+      <div class="step">
+        <h3>설치 파일 내려받기</h3>
+        <p>PC에서 <b>설치판 다운로드</b>를 눌러 <b>singocut-setup-1.0.2.exe</b>를 받아요. 브라우저가 ‘흔히 다운로드되지 않는 파일’이라고 하면 <b>…› 유지</b>를 눌러요.</p>
+      </div>
+      <div class="step">
+        <h3>보안 경고 넘기기</h3>
+        <p>파일을 실행했을 때 파란 ‘Windows의 PC 보호’ 창이 뜨면 <b>추가 정보</b>를 누른 뒤 <b>실행</b>을 눌러요.</p>
+      </div>
+      <div class="step">
+        <h3>설치하고 실행</h3>
+        <p>안내에 따라 설치를 마치면 시작 메뉴와 바탕화면의 <b>신고컷</b>으로 실행해요. 지울 때는 <b>설정 › 앱</b>에서 제거하면 돼요.</p>
+      </div>
+    </div>
+
+    <h3 class="sub" id="inst-portable">윈도우 포터블판</h3>
+    <div class="steps three">
+      <div class="step">
+        <h3>파일 내려받기</h3>
+        <p><b>포터블 다운로드</b>로 <b>singocut-portable-1.0.2.exe</b>를 받아 원하는 폴더나 USB에 넣어 두세요.</p>
+      </div>
+      <div class="step">
+        <h3>더블클릭으로 실행</h3>
+        <p>설치 과정 없이 바로 열려요. 처음 한 번은 준비하느라 10초쯤 걸리고 다음부터는 바로 열려요. 보안 경고가 뜨면 <b>추가 정보 › 실행</b>을 눌러요.</p>
+      </div>
+      <div class="step">
+        <h3>업데이트는 새 파일로</h3>
+        <p>새 버전이 나오면 프로그램이 알려 드려요. 이 사이트에서 새 포터블 파일을 받아 바꿔 쓰면 돼요.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="tip" style="padding-top:0">
+  <div class="wrap">
+    <div class="tip">
+      <div class="ic" aria-hidden="true">💬</div>
+      <div>
+        <h3>카카오톡으로 영상을 옮길 땐 ‘파일’로 보내세요</h3>
+        <p>블랙박스 원본을 PC나 다른 폰에서 카카오톡으로 옮길 때 <b>동영상(앨범)</b>으로 보내면 카카오톡이 영상을 다시 압축하면서 <b>두 번째 트랙(후면 영상)이 사라져요.</b> 채팅방의 <b>＋ › 파일</b>로 보내야 정면·후면이 모두 담긴 원본 그대로 받아져요. PC에서 편집한다면 메모리카드를 바로 연결하는 게 가장 확실해요.</p>
+        <div class="compare">
+          <div class="cmp bad"><strong>✕ 동영상으로 보내기</strong>재압축되어 정면 영상만 남음</div>
+          <div class="cmp good"><strong>✓ 파일로 보내기</strong>원본 그대로, 정면·후면 모두 유지</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq" style="padding-top:0">
+  <div class="wrap">
+    <p class="eyebrow">FAQ</p>
+    <h2>자주 묻는 질문</h2>
+    <div class="faq">
+      <details><summary>정말 무료인가요?</summary><p>네, 안드로이드 앱과 윈도우 프로그램 모두 완전 무료예요. 광고나 회원가입, 결제가 없어요.</p></details>
+      <details><summary>영상이 서버로 올라가나요?</summary><p>아니요. 편집과 저장은 모두 휴대폰이나 PC 안에서 이루어지고, 영상은 어디에도 업로드되지 않아요. 인터넷은 새 버전이 있는지 확인할 때만 써요.</p></details>
+      <details><summary>윈도우 설치판과 포터블판은 뭐가 다른가요?</summary><p>기능은 같아요. 설치판은 시작 메뉴에 등록되고 프로그램 안에서 바로 업데이트돼요. 포터블판은 설치 없이 파일 하나로 실행되고, 업데이트할 때 새 파일을 받아 바꿔 쓰면 돼요.</p></details>
+      <details><summary>안전신문고에는 어떻게 올리나요?</summary><p>휴대폰에서는 저장이 끝난 뒤 공유하기로 안전신문고 앱에 바로 첨부하거나, 안전신문고 앱에서 갤러리의 신고컷 폴더 영상을 고르면 돼요. PC에서는 안전신문고 웹사이트에서 저장한 파일을 첨부하면 돼요.</p></details>
+      <details><summary>130MB를 넘으면 어떻게 하나요?</summary><p>편집 화면의 용량 표시를 보면서 구간을 더 짧게 자르거나 화질을 ‘보통’·‘낮음’으로 낮추면 용량이 줄어요. ‘130MB에 맞춰 자동 조절’을 켜도 돼요.</p></details>
+      <details><summary>갤러리에 블랙박스 영상이 안 보여요.</summary><p>AVI, TS 같은 형식은 갤러리에 안 보일 수 있어요. 첫 화면의 ‘갤러리에 안 보이면 파일에서 찾기’를 눌러 파일 앱에서 직접 골라 주세요.</p></details>
+      <details><summary>신고컷이 두 개 보여요.</summary><p>1.5.x 이하 버전과 1.6.0 이후 버전은 앱 식별자가 달라서 따로 설치돼요. 예전 신고컷을 삭제해 주세요. 이미 저장한 영상은 갤러리에 그대로 남아 있어요.</p></details>
+      <details><summary>아이폰이나 맥에서도 쓸 수 있나요?</summary><p>지금은 안드로이드(Android 10 이상)와 윈도우만 지원해요.</p></details>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <b style="font-size:16px;color:#fff">신고컷</b> · 안전신문고용 블랙박스 영상 편집
+      <small>신고컷은 개인이 만든 프로그램이며, 안전신문고·행정안전부와 관련이 없어요.</small>
+    </div>
+    <div class="contact">
+    <a class="insta" href="https://www.instagram.com/reldnix/" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+      created by @reldnix
+    </a>
+    <a class="insta" href="mailto:reldnix1993@gmail.com">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+      문의 reldnix1993@gmail.com
+    </a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

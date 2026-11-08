@@ -1,0 +1,14 @@
+{
+  "android": {
+    "versionCode": 13,
+    "versionName": "1.7.0",
+    "url": "https://github.com/reldnix1993/singocut/releases/download/android-1.7.0/singocut-1.7.0.apk",
+    "notes": "저장 옵션을 PC판과 통일: 2채널은 상하 분할/좌우 분할/한 채널만 → 한 영상으로 합치기·채널별 따로 2개 또는 채널 선택, 4채널은 2×2 배열/한 채널만"
+  },
+  "windows": {
+    "version": "1.0.2",
+    "url": "https://github.com/reldnix1993/singocut/releases/download/windows-1.0.2/singocut-setup-1.0.2.exe",
+    "portable_url": "https://github.com/reldnix1993/singocut/releases/download/windows-1.0.2/singocut-portable-1.0.2.exe",
+    "notes": "로고 B 적용, 화면 배치(상하·좌우·2×2·한 채널만)와 저장 형태를 모바일과 통일, 재생 중 타임바를 눌러도 계속 재생, 저장 위치 강조"
+  }
+}
