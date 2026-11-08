@@ -7,9 +7,9 @@
 <meta name="description" content="잇고, 자르고, 바로 신고. 정면·후면 블랙박스 영상을 합치고 130MB에 맞춰 저장하는 무료 편집 프로그램. 안드로이드 앱, 윈도우 설치판·포터블판.">
 <meta property="og:title" content="신고컷 · 안전신문고용 블랙박스 영상 편집">
 <meta property="og:description" content="잇고, 자르고, 바로 신고. 안드로이드·윈도우 무료 다운로드.">
-<meta property="og:image" content="img/intro.jpg?v=a1.7.0-w1.0.2-s">
+<meta property="og:image" content="img/intro.jpg?v=a1.7.0-w1.0.2-t">
 <meta name="theme-color" content="#059669">
-<link rel="icon" type="image/svg+xml" href="img/logo.svg?v=a1.7.0-w1.0.2-s">
+<link rel="icon" type="image/svg+xml" href="img/logo.svg?v=a1.7.0-w1.0.2-t">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
@@ -196,6 +196,13 @@ h3.sub{font-size:22px;margin-top:44px;letter-spacing:-.4px;scroll-margin-top:80p
 .steps.three{grid-template-columns:repeat(3,1fr)}
 @media (max-width:900px){.plat,.dlgrid,.flow-grid,.steps.three{grid-template-columns:1fr}.dlwrap{padding:30px 22px}}
 
+/* screens carousel */
+.shots{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;margin-top:28px;padding-bottom:14px;cursor:grab;scrollbar-width:thin;scrollbar-color:#A7E3CB transparent;-webkit-overflow-scrolling:touch}
+.shots.drag{cursor:grabbing;scroll-snap-type:none}
+.shots img{flex:0 0 auto;width:240px;height:500px;border-radius:20px;scroll-snap-align:start;user-select:none;-webkit-user-drag:none}
+.shots::-webkit-scrollbar{height:6px}.shots::-webkit-scrollbar-thumb{background:#A7E3CB;border-radius:6px}
+@media(max-width:640px){.shots{gap:12px;margin-top:20px}.shots img{width:200px;height:417px;border-radius:16px}}
+
 </style>
 </head>
 <body>
@@ -232,8 +239,8 @@ h3.sub{font-size:22px;margin-top:44px;letter-spacing:-.4px;scroll-margin-top:80p
       <p class="meta">안드로이드 1.7.0 · 윈도우 1.0.2 (설치판 · 포터블판)</p>
     </div>
     <div class="hero-shot">
-      <div class="laptop"><img src="img/win_editor.jpg?v=a1.7.0-w1.0.2-s" alt="윈도우용 신고컷 편집 화면"></div>
-      <div class="phone"><img src="img/01_home.jpg?v=a1.7.0-w1.0.2-s" alt="안드로이드 신고컷 시작 화면"></div>
+      <div class="laptop"><img src="img/win_editor.jpg?v=a1.7.0-w1.0.2-t" alt="윈도우용 신고컷 편집 화면"></div>
+      <div class="phone"><img src="img/01_home.jpg?v=a1.7.0-w1.0.2-t" alt="안드로이드 신고컷 시작 화면"></div>
     </div>
   </div>
 </header>
@@ -252,7 +259,7 @@ h3.sub{font-size:22px;margin-top:44px;letter-spacing:-.4px;scroll-margin-top:80p
           <h3>정면·후면을 한 영상으로</h3>
           <p>한 파일에 함께 녹화된 여러 영상 트랙을 동시에 재생해요. 위아래나 좌우로 붙여 하나의 영상으로 저장하니 상황이 한눈에 보여요. 4채널 블랙박스는 2×2로 모아 볼 수 있어요.</p>
         </div>
-        <img src="img/merged.jpg?v=a1.7.0-w1.0.2-s" alt="정면 영상이 위, 후면 영상이 아래에 붙은 저장 결과 예시">
+        <img src="img/merged.jpg?v=a1.7.0-w1.0.2-t" alt="정면 영상이 위, 후면 영상이 아래에 붙은 저장 결과 예시">
       </div>
       <div class="f">
         <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4L8.1 15.9M14.5 14.5L20 20M8.1 8.1L12 12"/></svg></div>
@@ -290,19 +297,19 @@ h3.sub{font-size:22px;margin-top:44px;letter-spacing:-.4px;scroll-margin-top:80p
           <span class="tag">상하 분할 · 좌우 분할</span>
           <h4>저장 형태 2가지</h4>
           <p>붙인 그대로 영상 1개로, 또는 채널마다 따로 2개로 저장해요.</p>
-          <img src="img/flow_2ch.jpg?v=a1.7.0-w1.0.2-s" alt="상하 분할을 고르면 저장 형태로 한 영상으로 합치기, 채널별 따로 2개가 나오는 화면">
+          <img src="img/flow_2ch.jpg?v=a1.7.0-w1.0.2-t" alt="상하 분할을 고르면 저장 형태로 한 영상으로 합치기, 채널별 따로 2개가 나오는 화면">
         </div>
         <div class="fl">
           <span class="tag">4채널 · 2×2 배열</span>
           <h4>네 화면을 한 번에</h4>
           <p>네 채널을 바둑판처럼 붙여 영상 1개로, 또는 4개로 따로 저장해요.</p>
-          <img src="img/flow_4ch.jpg?v=a1.7.0-w1.0.2-s" alt="4채널에서 2×2 배열을 고르면 한 영상으로 합치기, 채널별 따로 4개가 나오는 화면">
+          <img src="img/flow_4ch.jpg?v=a1.7.0-w1.0.2-t" alt="4채널에서 2×2 배열을 고르면 한 영상으로 합치기, 채널별 따로 4개가 나오는 화면">
         </div>
         <div class="fl">
           <span class="tag">한 채널만</span>
           <h4>필요한 채널 하나만</h4>
           <p>저장할 채널(정면 또는 후면)만 고르면 돼요.</p>
-          <img src="img/flow_one.jpg?v=a1.7.0-w1.0.2-s" alt="한 채널만을 고르면 저장할 채널로 CH1 정면, CH2 후면이 나오는 화면">
+          <img src="img/flow_one.jpg?v=a1.7.0-w1.0.2-t" alt="한 채널만을 고르면 저장할 채널로 CH1 정면, CH2 후면이 나오는 화면">
         </div>
       </div>
     </div>
@@ -317,7 +324,7 @@ h3.sub{font-size:22px;margin-top:44px;letter-spacing:-.4px;scroll-margin-top:80p
     <p class="sec-lead">블랙박스 메모리카드를 PC에 꽂아 바로 편집하거나, 휴대폰으로 옮겨 편집해서 안전신문고 앱에 바로 올릴 수 있어요.</p>
     <div class="plat">
       <div class="pcard">
-        <div class="shot"><img class="m" src="img/03_editor.jpg?v=a1.7.0-w1.0.2-s" alt="안드로이드 신고컷 저장 옵션 화면"></div>
+        <div class="shot"><img class="m" src="img/03_editor.jpg?v=a1.7.0-w1.0.2-t" alt="안드로이드 신고컷 저장 옵션 화면"></div>
         <div class="body">
           <h3>안드로이드 앱</h3>
           <p>편집한 영상을 갤러리 Movies/신고컷에 저장하고, 공유하기로 안전신문고 앱에 바로 첨부해요.</p>
@@ -325,7 +332,7 @@ h3.sub{font-size:22px;margin-top:44px;letter-spacing:-.4px;scroll-margin-top:80p
         </div>
       </div>
       <div class="pcard">
-        <div class="shot"><img class="w" src="img/win_home.jpg?v=a1.7.0-w1.0.2-s" alt="윈도우용 신고컷 시작 화면"></div>
+        <div class="shot"><img class="w" src="img/win_home.jpg?v=a1.7.0-w1.0.2-t" alt="윈도우용 신고컷 시작 화면"></div>
         <div class="body">
           <h3>윈도우 PC 프로그램</h3>
           <p>메모리카드의 영상 파일을 창에 끌어다 놓으면 바로 불러와요. 저장 위치도 원하는 폴더로 바꿀 수 있어요.</p>
@@ -338,7 +345,18 @@ h3.sub{font-size:22px;margin-top:44px;letter-spacing:-.4px;scroll-margin-top:80p
 
 <section id="screens" style="padding-top:0">
   <div class="wrap">
-    <img class="banner" style="margin-top:0" src="img/intro.jpg?v=a1.7.0-w1.0.2-s" alt="신고컷 소개 이미지: 모든 채널 한 화면에, 이어 붙여 자르기, 꾹 눌러 순서 바꾸기, 대부분의 블랙박스 지원">
+    <p class="eyebrow">SCREENS</p>
+    <h2>화면 둘러보기</h2>
+    <p class="sec-lead">옆으로 밀거나 끌어서 넘겨 보세요.</p>
+    <div class="shots" id="shots">
+      <img src="img/scr_01_home.jpg?v=a1.7.0-w1.0.2-t" alt="블랙박스 영상을 바로 불러오는 시작 화면" draggable="false">
+      <img src="img/scr_02_channels.jpg?v=a1.7.0-w1.0.2-t" alt="정면·후면 영상을 한 화면에 재생하는 편집 화면" draggable="false">
+      <img src="img/scr_03_trim.jpg?v=a1.7.0-w1.0.2-t" alt="타임바로 구간을 자르고 용량을 확인하는 화면" draggable="false">
+      <img src="img/scr_04_reorder.jpg?v=a1.7.0-w1.0.2-t" alt="파일을 꾹 눌러 끌어 순서를 바꾸는 화면" draggable="false">
+      <img src="img/scr_05_formats.jpg?v=a1.7.0-w1.0.2-t" alt="지원 형식과 버전이 보이는 메뉴 화면" draggable="false">
+      <img src="img/scr_06_pc.jpg?v=a1.7.0-w1.0.2-t" alt="윈도우 PC 프로그램 편집 화면" draggable="false">
+    </div>
+    <img class="banner" src="img/intro.jpg?v=a1.7.0-w1.0.2-t" alt="신고컷 소개 이미지: 모든 채널 한 화면에, 이어 붙여 자르기, 꾹 눌러 순서 바꾸기, 대부분의 블랙박스 지원">
   </div>
 </section>
 
@@ -518,6 +536,14 @@ h3.sub{font-size:22px;margin-top:44px;letter-spacing:-.4px;scroll-margin-top:80p
     if(go(id||'top', true)){ e.preventDefault(); history.replaceState(null,'',id && id!=='top' ? '#'+id : location.pathname); }
   });
   window.addEventListener('load', function(){ if(location.hash.length>1) go(location.hash.slice(1), false); });
+})();
+</script>
+<script>
+/* 화면 둘러보기: 마우스로 끌어서 넘기기 */
+(function(){var s=document.getElementById('shots');if(!s)return;var down=false,x0=0,l0=0,moved=false;
+s.addEventListener('mousedown',function(e){down=true;moved=false;x0=e.pageX;l0=s.scrollLeft;s.classList.add('drag');});
+window.addEventListener('mousemove',function(e){if(!down)return;var d=e.pageX-x0;if(Math.abs(d)>3)moved=true;s.scrollLeft=l0-d;});
+window.addEventListener('mouseup',function(){if(!down)return;down=false;s.classList.remove('drag');});
 })();
 </script>
 </body>
